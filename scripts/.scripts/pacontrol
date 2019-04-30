@@ -1,0 +1,39 @@
+#!/bin/bash
+# pacontrol
+#
+# This script changes the volume of the current audio source based on a set interval
+
+usage() {
+    echo "Usage: pacontrol [up|down|toggle-mute]"
+}
+
+getdefaultsinkname() {
+    pacmd stat | awk -F": " '/^Default sink name: /{print $2}'
+}
+
+getdefaultsinkvol() {
+    pacmd list-sinks |
+        awk '/^\s+name: /{indefault = $2 == "<'$(getdefaultsinkname)'>"}
+            /^\s+volume: / && indefault {print $5; exit}'
+}
+
+vol_interval=5
+sinks=$(pactl list short sinks | grep RUNNING | cut -c 1)
+latest_sink=${sinks[*]:-1}
+#latest_sink=0
+
+case $1 in
+    "up")
+        pactl set-sink-mute $latest_sink 0
+        pactl set-sink-volume $latest_sink +$vol_interval%
+        #notify-send "Volume: $(getdefaultsinkvol)"
+        ;;
+    "down")
+        pactl set-sink-volume $latest_sink -$vol_interval%
+        #notify-send "Volume: $(getdefaultsinkvol)"
+        ;;
+    "toggle-mute") 
+        pactl set-sink-mute $latest_sink toggle
+        ;;
+    *) usage ;;
+esac

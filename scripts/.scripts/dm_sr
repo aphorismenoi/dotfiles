@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# provides DMENU_OPTIONS
+CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/dmenu"
+[[ -f "$CONFIG_DIR/dm_options" ]] && . "$CONFIG_DIR/dm_options"
+
+DMENU="dmenu $DMENU_OPTIONS"
+BROWSER="qutebrowser"
+URL=$(sr -p $(sr -elvi | tail -n +2 | cut -s -f1 | $DMENU))
+
+$BROWSER $URL --target=tab-silent > /dev/null 2>&1

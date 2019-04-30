@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# based on: https://github.com/cdown/passmenu
+
+shopt -s nullglob globstar
+
+#conf="$XDG_CONFIG_HOME/dmenu/dmenurc"
+#[[ -r $conf ]] && . "$conf" || dmenucmd="dmenu -i"
+
+# provides DMENU_OPTIONS
+CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/dmenu"
+[[ -f "$CONFIG_DIR/dm_options" ]] && . "$CONFIG_DIR/dm_options"
+
+DMENU="dmenu $DMENU_OPTIONS"
+
+prefix=${PASSWORD_STORE_DIR:-~/.password-store}
+files=( "$prefix"/**/*.gpg )
+files=( "${files[@]#"$prefix"/}" )
+files=( "${files[@]%.gpg}" )
+
+#word=$(printf '%s\n' "${fbase[@]}" | "${DMENU[@]}" "$@")
+word=$(printf '%s\n' "${files[@]}" | $DMENU)
+
+if [[ -n $word ]]; then
+    /usr/bin/pass show -c "$word" 2>/dev/null
+fi

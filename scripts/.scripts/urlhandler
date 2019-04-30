@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# script works from clipboard
+# If an image, it will view in sxiv,
+# if a video or gif, it will view in mpv
+# if a music file or pdf, it will download,
+# otherwise it opens link in browser.
+
+URL=$(xclip -o)
+#echo $URL
+# List of sites that will be opened in mpv.
+vidsites="youtube.com
+	\|hooktube.com
+	\|bitchute.com
+	"
+ext="${URL##*.}"
+mpvFiles="mkv mp4 gif webm"
+sxivFiles="png jpg jpeg jpe"
+wgetFiles="mp3 flac opus mp3?source=feed pdf"
+
+if echo $sxivFiles | grep -w $ext > /dev/null; then
+	sxiv "$URL" >/dev/null & disown
+elif echo $mpvFiles | grep -w $ext > /dev/null; then
+	mpv -quiet "$URL" > /dev/null & disown
+elif echo $wgetFiles | grep -w $ext > /dev/null; then
+	wget "$URL" >/dev/null & disown
+elif echo "$@" | grep "$vidsites">/dev/null; then
+	mpv -quiet "$URL" > /dev/null & disown
+else
+	$BROWSER "$URL" --target=tab &>/dev/null & disown
+fi

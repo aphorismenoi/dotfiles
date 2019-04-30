@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Get mouse out of the way, but preserve focus
+current=$(xdotool getwindowfocus)
+swarp 0 1440
+xdotool windowfocus $current
