@@ -1,0 +1,4 @@
+# 
+# ~/.config/dmenu/dm_options
+#
+DMENU_OPTIONS="-i -fn Monospace:size=12 -nb #181818 -nf #585858 -sb #181818 -sf #D8D8D8"

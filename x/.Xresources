@@ -1,0 +1,37 @@
+!
+! ~/.Xresources
+!
+
+! X Settings
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+! Xcursor.theme: Vanilla-DMZ
+! Xcursor.theme: Adwaita
+Xcursor.theme: OpenZone_White
+
+!OpenZone_Ice_Slim/cursors
+!Vanilla-DMZ/cursors
+!OpenZone_Black/cursors
+!OpenZone_Fire_Slim/cursors
+!OpenZone_White/cursors
+!OpenZone_White_Slim/cursors
+!OpenZone_Fire/cursors
+!OpenZone_Black_Slim/cursors
+!OpenZone_Ice/cursors
+!Adwaita/cursors
+!OpenZone_Ice_Slim/cursors
+!Vanilla-DMZ/cursors
+!OpenZone_Black/cursors
+!OpenZone_Fire_Slim/cursors
+!OpenZone_White/cursors
+!OpenZone_White_Slim/cursors
+!OpenZone_Fire/cursors
+!OpenZone_Black_Slim/cursors
+!OpenZone_Ice/cursors
+!Adwaita/cursors

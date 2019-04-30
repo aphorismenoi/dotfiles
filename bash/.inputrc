@@ -1,0 +1,30 @@
+$include /etc/inputrc
+
+# coloured completions
+set colored-stats on
+set show-mode-in-prompt on
+set vi-ins-mode-string \1\e[6 q\2
+set vi-cmd-mode-string \1\e[2 q\2
+
+# TAB completion
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+set completion-ignore-case on
+
+# for vi mode
+set editing-mode vi
+
+$if mode=vi
+  set keymap vi-command
+  # these are for vi-command mode
+  j: history-search-backward
+  k: history-search-forward
+  Control-l: clear-screen
+
+  set keymap vi-insert
+  # these are for vi-insert mode
+  Control-l: clear-screen 
+  Control-j: history-search-backward
+  Control-k: history-search-forward
+$endif
+
