@@ -1,0 +1,16 @@
+cff	~/.scripts/folders
+cfc	~/.scripts/configs
+cfb	~/.bashrc
+cfv	~/.config/nvim/init.vim
+cfr	~/.config/ranger/rc.conf
+cfq	~/.config/qutebrowser/config.py
+cfm	~/.config/mutt/muttrc
+cfu	~/.config/newsboat/urls
+cfn	~/.config/newsboat/config
+cfmb	~/.config/ncmpcpp/bindings
+cfmc	~/.config/ncmpcpp/config
+cfmpd	~/.config/mpd/mpd.conf
+cfM	~/.config/mpd/mpd.conf
+cfx     ~/.xinitrc
+et      ~/documents/__active_projects/lewinsgut_rebuild/__todo.md
+eg      ~/documents/_gtd/index.wiki 

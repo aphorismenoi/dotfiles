@@ -1,0 +1,13 @@
+# You can add comments to these files with #
+h	~/
+d	~/documents
+i       ~/documents/___in
+ap      ~/documents/__active_projects
+D	~/downloads
+m	~/music
+pp	~/pictures
+vv	~/videos
+s	~/.scripts
+cf	~/.config
+b       ~/.builds
+B      /run/media/aphorismenoi/BACKUP
