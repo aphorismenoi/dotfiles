@@ -3,8 +3,8 @@
 
 shopt -s nullglob globstar
 
-#conf="$XDG_CONFIG_HOME/dmenu/dmenurc"
-#[[ -r $conf ]] && . "$conf" || dmenucmd="dmenu -i"
+# remember focus
+current=$(xdotool getwindowfocus)
 
 # provides DMENU_OPTIONS
 CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/dmenu"
@@ -23,3 +23,5 @@ word=$(printf '%s\n' "${files[@]}" | $DMENU)
 if [[ -n $word ]]; then
     /usr/bin/pass show -c "$word" 2>/dev/null
 fi
+
+xdotool windowfocus "$current"

@@ -42,5 +42,8 @@ xset m 3
 # Get mouse out of the way 
 swarp 0 1440
 
+# start dwm_status
+dwm_status 2>&1 >/dev/null &
+
 # start WM
 exec $HOME/.scripts/dwm_start 

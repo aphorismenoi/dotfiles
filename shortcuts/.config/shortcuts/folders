@@ -9,5 +9,5 @@ pp	~/pictures
 vv	~/videos
 s	~/.scripts
 cf	~/.config
-b       ~/.builds
-B      /run/media/aphorismenoi/BACKUP
+B       ~/.builds
+ba      /run/media/aphorismenoi/BACKUP

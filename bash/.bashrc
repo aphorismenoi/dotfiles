@@ -61,10 +61,10 @@ alias dir='dir --color=auto'
 
 # General
 alias sudo="sudo "
-alias vim="nvim"
 alias yt="youtube-viewer"
-#alias vimdiff="nvim -d"
 
+# Use neovim for vim if present
+command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 
 # start mutt in ~/downloads/attachments
 alias mutt='cd ~/downloads/ && mutt'
@@ -72,16 +72,13 @@ alias mutt='cd ~/downloads/ && mutt'
 # hrhr
 alias please='sudo $(history -p \!\!)'
 
-# preventing nested ranger instances
-ranger() {
-    if [ -z "$RANGER_LEVEL" ]; then
-        /usr/bin/ranger "$@"
-    else
-        exit
-    fi
-}
+# include shortcuts
+[ -f "$HOME/.config/shortcuts/shortcutrc" ] && source "$HOME/.config/shortcuts/shortcutrc"
 
-# tmux connections
+# edit file found with fuzzyfinder
+vf() { fzf | xargs -r -I % $EDITOR % ;}
+
+# connect to tmux session
 shux() { ssh "$1" -t LANG=en_US.utf8 tmux a -d ; }
 
 # images
@@ -117,5 +114,3 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
-
-[ -f "$HOME/.config/shortcuts/shortcutrc" ] && source "$HOME/.config/shortcuts/shortcutrc"

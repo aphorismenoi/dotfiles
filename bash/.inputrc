@@ -27,4 +27,3 @@ $if mode=vi
   Control-j: history-search-backward
   Control-k: history-search-forward
 $endif
-
