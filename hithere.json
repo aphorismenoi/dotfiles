@@ -1,0 +1,15 @@
+{ "ef_Parameter" : [
+  {
+  "Coord": [
+    "2020",
+    "2020",
+    "M_00n",
+    "Ist",
+    "SC",
+    "PM_000010",
+    "Kommentar"
+    ],
+    "Value": "Hi there from the ram!"
+  }
+  ]
+}
